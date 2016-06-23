@@ -1,0 +1,121 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE struts PUBLIC
+	"-//Apache Software Foundation//DTD Struts Configuration 2.3//EN"
+	"http://struts.apache.org/dtds/struts-2.3.dtd">
+<struts>
+	<constant name="struts.objectFactory" value="spring"></constant>
+	<package name="deafult" namespace="/" extends="struts-default">
+	
+		<action name="chklogin" class="userAction" method="checklogin">
+			<result name="success1" type="redirect">/admin/index.jsp</result>
+			<result name="success2" type="redirect">/admin/index2.jsp</result>
+			<result name="error">/admin/login.jsp</result>
+		</action>
+		
+		<action name="logout" class="userAction" method="logout">
+			<result name="success" type="redirect">/admin/login.jsp</result>
+		</action>
+
+		<action name="goods" class="goodsAction" method="list">
+			<result>/goods/list.jsp</result>
+		</action>
+
+		<action name="verifycode" class="userAction" method="verifycode" />
+
+		<action name="addgoodstype" class="goodsAction" method="addgoodstype">
+			<result>/goods/addgoodstype.jsp</result>
+		</action>
+
+		<action name="typelist" class="goodsAction" method="typelist">
+			<result>/goods/typelist.jsp</result>
+		</action>
+
+		<action name="savetype" class="goodsAction" method="savetype">
+			<result type="redirect">typelist.action</result>
+		</action>
+
+		<action name="addgoods" class="goodsAction" method="addgoods">
+			<result>/goods/add.jsp</result>
+		</action>
+
+		<action name="savegoods" class="goodsAction" method="savegoods">
+			<result name="success" type="redirect">goods.action</result>
+		</action>
+
+		<action name="savegoods" class="goodsAction" method="savegoods">
+			<result name="success" type="redirectAction">goods</result>
+		</action>
+
+		<action name="deletegood" class="goodsAction" method="deletegood">
+			<result name="success" type="redirectAction">goods</result>
+		</action>
+
+		<action name="modifygood" class="goodsAction" method="modifygood">
+
+			<result name="success" type="redirectAction">goods</result>
+		</action>
+
+		<action name="displayInfo" class="goodsAction" method="displayInfo">
+			<result>/goods/displayInfo.jsp</result>
+		</action>
+		<action name="browerAction" class="com.company.shopping.action.BrowerAction">
+
+		</action>
+
+		<action name="index" class="indexAction">
+			<result>/default.jsp</result>
+		</action>
+
+		<action name="addcar" class="indexAction" method="addcar">
+			<result type="redirect">showcar.action</result>
+		</action>
+
+		<action name="showcar" class="indexAction" method="showcar">
+			<result>/showcar.jsp</result>
+		</action>
+
+		<action name="showgoods" class="indexAction" method="showgoods">
+			<result>/show.jsp</result>
+		</action>
+
+		<action name="ckeditorUpload" class="com.company.shopping.action.CkeditAction" />
+
+		<action name="upload" class="com.company.shopping.action.FileUploadAction">
+		</action>
+
+		<action name="showorder" class="orderAction" method="showOrder">
+			<result name="success">/order/list.jsp</result>
+			<result name="none">/order/list2.jsp</result>
+		</action>
+
+		<action name="saveorder" class="orderAction" method="addOrder">
+			<result type="redirect">showorder.action</result>
+		</action>
+
+		<action name="payorder" class="orderAction" method="payOrder">
+			<result type="redirect">showorder.action</result>
+		</action>
+
+		<action name="deliveryorder" class="orderAction" method="deliveryOrder">
+			<result type="redirect">showorder.action</result>
+		</action>
+		<action name="deleteuser" class="userAction" method="deleteuser">
+			<result type="redirect">userlist.action</result>
+		</action>
+		<action name="delgoods" class="goodsAction" method="delgoods">
+			<result type="redirect">goods.action</result>
+		</action>
+		<action name="userlist" class="userAction" method="userlist">
+			<result name="success">/admin/userlist.jsp</result>
+			<result name="none">/admin/author.jsp</result>
+		</action>
+		<action name="register" class="userAction" method="register">
+			<result name="success" type="redirect">/admin/register.jsp</result>
+		</action>
+
+		<action name="showGoodsByType" class="goodsAction" method="showGoodsByType">
+			<result name="success">/goods.jsp</result>
+		</action>
+
+	</package>
+</struts>
